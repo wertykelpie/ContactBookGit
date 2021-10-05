@@ -15,6 +15,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
+    public static final String CHECKSAMENUMBER = "EP";
     public static final String LOOK_UP = "GN";
 
     //Constantes que definem as mensagens para o utilizador
@@ -27,9 +28,8 @@ public class Main {
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
-    public static final String CHECKSAMENUMBER = "CHECKSAMENUMBER";
     public static final String THERE_ARE_CONTACTS_THAT_SHARE_PHONE_NUMBERS = "There are contacts that share phone numbers.";
-    public static final String ALL_CONTACTS_HAVE_DIFFERENT_PHONE_NUMBERS = "All contacts have different phone numbers";
+    public static final String ALL_CONTACTS_HAVE_DIFFERENT_PHONE_NUMBERS = "All contacts have different phone numbers.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
