@@ -1,3 +1,4 @@
+
 import contactBook.Contact;
 import contactBook.ContactBook;
 
@@ -26,6 +27,9 @@ public class Main {
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
+    public static final String CHECKSAMENUMBER = "CHECKSAMENUMBER";
+    public static final String THERE_ARE_CONTACTS_THAT_SHARE_PHONE_NUMBERS = "There are contacts that share phone numbers.";
+    public static final String ALL_CONTACTS_HAVE_DIFFERENT_PHONE_NUMBERS = "All contacts have different phone numbers";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -57,6 +61,9 @@ public class Main {
                     break;
                 case LOOK_UP:
                     lookUpContact(in,cBook);
+                    break;
+                case CHECKSAMENUMBER:
+                    checkSameNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -97,6 +104,14 @@ public class Main {
             System.out.println(PHONE_NOT_EXIST);
         else
             System.out.println(name);
+    }
+    private static void checkSameNumbers(ContactBook cbook){
+            if(cbook.checkSameNumber())
+                System.out.println(THERE_ARE_CONTACTS_THAT_SHARE_PHONE_NUMBERS);
+            else
+                System.out.println(ALL_CONTACTS_HAVE_DIFFERENT_PHONE_NUMBERS);
+
+
     }
 
     private static void addContact(Scanner in, ContactBook cBook) {
@@ -165,7 +180,7 @@ public class Main {
         else System.out.println(NAME_NOT_EXIST);
     }
 
-    private static void listAllContacts(ContactBook cBook) {
+    private static  void listAllContacts(ContactBook cBook) {
         if (cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
             while( cBook.hasNext() ) {
