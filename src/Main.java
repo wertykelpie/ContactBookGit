@@ -78,19 +78,25 @@ public class Main {
 
     private static void lookUpContact(Scanner in, ContactBook cBook) {
         int phone;
+        String name = "";
         phone = in.nextInt(); in.nextLine();
 
         //The operation receives a phone number
         //and returns the contact with that given number.
-
-        // if phone exists
-        if (){
-        //In case there are several contacts with that same phone number,
-        //the oldest contact is returned.
+        cBook.initializeIterator();
+        while(cBook.hasNext()) {
+            Contact temp = cBook.next();
+            if (temp.getPhone() == phone) {
+                name = temp.getName();
+                break;
+            }
         }
         //The operation fails if: (1) the phone number does not match any contact
         // ("Phone number does not exist.").
-        else System.out.println(PHONE_NOT_EXIST);
+        if (name.equals(""))
+            System.out.println(PHONE_NOT_EXIST);
+        else
+            System.out.println(name);
     }
 
     private static void addContact(Scanner in, ContactBook cBook) {
